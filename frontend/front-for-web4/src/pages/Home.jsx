@@ -1,10 +1,14 @@
 import { Box, Heading } from "@chakra-ui/react";
+import Navbar from "../components/Navbar.jsx";
 
 function Home() {
     return (
-        <Box p={6}>
-            <Heading>You are logged in</Heading>
-        </Box>
+        <div>
+            <Navbar />
+            <Box p={6}>
+                <Heading>You are logged in</Heading>
+            </Box>
+        </div>
     );
 }
 

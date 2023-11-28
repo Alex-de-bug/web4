@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import { signupUser, signupSelector, clearState } from '../store/slices/SignUpSlice.jsx';
+import Navbar from "../components/Navbar.jsx";
 
 function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +28,7 @@ function Signup() {
         try {
             await onSubmit(formData);
         } catch (error) {
-            console.error('Error submitting form:', error);
+            console.log('Error submitting form: ' + error.message);
         }
     };
     const onSubmit = (data) => {
@@ -45,7 +45,6 @@ function Signup() {
 
     useEffect(() => {
         if (isError) {
-            console.log(errorMessage);
             dispatch(clearState());
         }
 
@@ -55,6 +54,8 @@ function Signup() {
         }
     }, [isError, isSuccess]);
     return (
+        <div>
+            <Navbar />
         <form onSubmit={handleFormSubmit}>
             <h2>Sign up</h2>
             <input
@@ -94,7 +95,8 @@ function Signup() {
                 </button>
             )}
         </form>
-
+            {errorMessage}
+        </div>
     );
 }
 

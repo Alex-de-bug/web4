@@ -16,7 +16,6 @@ export const signupUser = createAsyncThunk(
             });
             let data = await response.data;
             if (response.status === 200) {
-                localStorage.setItem("token", data.token);
                 return data;
             } else {
                 return thunkAPI.rejectWithValue(data);
@@ -52,12 +51,14 @@ export const SignupSlice = createSlice({
                 state.token = payload.token;
                 state.isFetching = false;
                 state.isSuccess = true;
+                state.errorMessage = "Регистрация прошла успешно!"
                 return state;
             })
             .addCase(signupUser.rejected, (state, { payload }) => {
+                console.log(payload);
                 state.isFetching = false;
                 state.isError = true;
-                state.errorMessage = payload.message
+                state.errorMessage = payload
             })
             .addCase(signupUser.pending, (state) => {
                 state.isFetching = true;

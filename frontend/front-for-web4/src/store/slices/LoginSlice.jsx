@@ -10,7 +10,6 @@ export const loginUser = createAsyncThunk(
                 name: name,
                 password: password
             };
-            console.log(name+" axios "+password);
             const response = await axios.post(link, params, {
                 headers: { "Content-Type": "application/json" }
             });
@@ -22,8 +21,7 @@ export const loginUser = createAsyncThunk(
                 return thunkAPI.rejectWithValue(data);
             }
         } catch (e) {
-            console.log("Error", e.response.data);
-            thunkAPI.rejectWithValue(e.response.data);
+            return thunkAPI.rejectWithValue(e.response.data);
         }
     }
 );
@@ -51,12 +49,13 @@ export const LoginSlice = createSlice({
                 state.token = payload.token;
                 state.isFetching = false;
                 state.isSuccess = true;
+                state.errorMessage = "";
                 return state;
             })
             .addCase(loginUser.rejected, (state, { payload }) => {
                 state.isFetching = false;
                 state.isError = true;
-                state.errorMessage = payload.message
+                state.errorMessage = payload
             })
             .addCase(loginUser.pending, (state) => {
                 state.isFetching = true;

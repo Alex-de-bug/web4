@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser, loginSelector, clearState } from '../store/slices/LoginSlice.jsx';
 import {useEffect, useState} from "react";
+import Navbar from "../components/Navbar.jsx";
 
 function Login() {
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ function Login() {
     }
   };
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(loginUser(data));
   };
 
@@ -53,22 +53,27 @@ function Login() {
     }
   }, [isError, isSuccess]);
   return (
-        <form onSubmit={handleFormSubmit}>
-          <h1>Sign in to your account</h1>
-            <label>Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
-            <label >Password</label>
-            <input type="password" name="password" value={formData.password} {...register('password', { required: true })} onChange={handleChange} />
-          {isFetching ? (
-              <button type="submit" disabled={isFetching}>
-                Signing in...
-              </button>
-          ) : (
-              <button type="submit">
-                Sign in
-              </button>
-          )}
-        </form>
+
+        <div>
+          <Navbar />
+          <form onSubmit={handleFormSubmit}>
+            <h1>Sign in to your account</h1>
+              <label>Name</label>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
+              <label >Password</label>
+              <input type="password" name="password" value={formData.password} {...register('password', { required: true })} onChange={handleChange} />
+            {isFetching ? (
+                <button type="submit" disabled={isFetching}>
+                  Signing in...
+                </button>
+            ) : (
+                <button type="submit">
+                  Sign in
+                </button>
+            )}
+          </form>
+            {errorMessage}
+        </div>
   );
 }
 

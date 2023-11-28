@@ -5,7 +5,6 @@ import Router from "./Router.jsx";
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Router />
     </BrowserRouter>
   );
