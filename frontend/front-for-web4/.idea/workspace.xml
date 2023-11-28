@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71f950eb-7371-46f5-b7f9-8448526fe1ed" name="Changes" comment="first front">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/jwt/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +65,7 @@
       <workItem from="1700852587038" duration="5113000" />
       <workItem from="1701070342009" duration="687000" />
       <workItem from="1701089185247" duration="2014000" />
-      <workItem from="1701159277929" duration="16299000" />
+      <workItem from="1701159277929" duration="18113000" />
     </task>
     <task id="LOCAL-00001" summary="first front">
       <created>1701183907484</created>

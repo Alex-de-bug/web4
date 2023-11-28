@@ -20,13 +20,11 @@ public class AttemptService {
     private final UserRepository userRepository;
 
     public List<Attempt> listAttempt(Long id) {
-//        if(id!=null) return Collections.singletonList(attemptRepository.findById(id).orElse(null));
         return attemptRepository.findAll();
     }
 
     public void saveAttempt(Attempt attempt, Principal principal) {
         attempt.setUser(getUserByPrincipal(principal));
-        //log.info("Saving new {}", attempt);
         attemptRepository.save(attempt);
     }
 

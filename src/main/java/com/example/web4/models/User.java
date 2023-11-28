@@ -1,7 +1,6 @@
 package com.example.web4.models;
 
 import com.example.web4.dto.UserCredentials;
-import com.example.web4.models.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -36,8 +35,6 @@ public class User implements UserDetails {
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

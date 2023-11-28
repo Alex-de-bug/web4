@@ -13,6 +13,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -89,7 +98,7 @@
       <workItem from="1700750896298" duration="9464000" />
       <workItem from="1700824746720" duration="9475000" />
       <workItem from="1700908533983" duration="668000" />
-      <workItem from="1701075912286" duration="19794000" />
+      <workItem from="1701075912286" duration="24108000" />
     </task>
     <task id="LOCAL-00001" summary="new functional auth">
       <created>1700822021496</created>
