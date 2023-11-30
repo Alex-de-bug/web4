@@ -27,7 +27,7 @@ public class AuthUsersDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByName(username);
-
+        System.out.println(user.get().getName());
         if (!user.isPresent())
             throw new UsernameNotFoundException("User Not Found with username: " + username);
 

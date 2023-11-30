@@ -36,6 +36,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Неверно указан пароль или логин");
         }
     }
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserCredentials userRequest) {
         AuthError authError = new UserValidation().validateUser(userRequest.getName(), userRequest.getPassword(), userRequest.getEmail());
@@ -46,6 +47,6 @@ public class UserController {
         if(userValidation!=null){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(userValidation.getErrorMessage());
         }
-        return ResponseEntity.ok().body("Success123");
+        return ResponseEntity.ok().body("Success");
     }
 }

@@ -1,43 +1,77 @@
 package com.example.web4.controllers;
 
-import com.example.web4.models.Attempt;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
+import com.example.web4.dto.Coordinates;
+import com.example.web4.dto.HitResult;
+import com.example.web4.models.User;
+import com.example.web4.repositories.UserRepository;
+import com.example.web4.security.jwt.AuthTokenFilter;
+import com.example.web4.security.jwt.JwtUtils;
+import com.example.web4.security.sevices.AuthUsersDetails;
 import com.example.web4.service.AttemptService;
+import com.example.web4.service.UserService;
+import com.example.web4.utils.CoordinatesValidation;
+import com.example.web4.utils.OutOfCoordinatesBoundsException;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
-@Controller
-@RequiredArgsConstructor
+@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/auth/attempt")
 public class AttemptController {
     private final AttemptService attemptService;
+    private final JwtUtils jwtUtils;
+    private final AuthTokenFilter authTokenFilter;
+    private final UserRepository userRepository;
 
-    @GetMapping("/")
-    public String attempt(Principal principal, Model model){
-        model.addAttribute("attempts", attemptService.getAttemptsByPrincipal(principal));
-        model.addAttribute("user", attemptService.getUserByPrincipal(principal));
-        return "attempts";
+    @Autowired
+    public AttemptController(AttemptService attemptService, JwtUtils jwtUtils, AuthTokenFilter authTokenFilter, UserRepository userRepository) {
+        this.attemptService = attemptService;
+        this.jwtUtils = jwtUtils;
+        this.authTokenFilter = authTokenFilter;
+        this.userRepository = userRepository;
     }
 
-    @GetMapping("/attempt/{id}")
-    public String attemptInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("attempt", attemptService.getAttemptById(id));
-        return "attempt-info";
+    @PostMapping("")
+    public ResponseEntity<?> createPoint(@RequestBody Coordinates pointRequest, HttpServletRequest request) {
+        try {
+            System.out.println(pointRequest.getX()+" "+pointRequest.getY()+" "+pointRequest.getR()+" \ntoken is: "+jwtUtils.validateJwtToken(pointRequest.getToken()));
+            CoordinatesValidation.validate(pointRequest);
+            HitResult hitResult = attemptService.save(pointRequest);
+            return new ResponseEntity<>(hitResult, HttpStatus.CREATED);
+        } catch (OutOfCoordinatesBoundsException exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
     }
 
-    @PostMapping("/attempt/create")
-    public String createAttempt(Attempt attempt, Principal principal){
-        attemptService.saveAttempt(attempt, principal);
-        return "redirect:/";
+    @GetMapping()
+    public ResponseEntity<?> getHits(HttpServletRequest request) {
+        List<HitResult> hits = new ArrayList<>();
+        try {
+            hits = attemptService.findAllByOwnerId(getUserIdFromRequest(request));
+            return new ResponseEntity<>(hits, HttpStatus.OK);
+        } catch (Exception exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
     }
 
-    @PostMapping("/attempt/delete/{id}")
-    public String deleteAttempt(@PathVariable Long id) {
-        attemptService.deleteAttempt(id);
-        return "redirect:/";
+    @DeleteMapping()
+    public void deleteAll(HttpServletRequest request) {
+        System.out.println("delete");
+        attemptService.deleteAttempt(getUserIdFromRequest(request));
+//        attemptService.deleteAttempt(userService.findById(getUserIdFromRequest(request)));
+    }
+
+
+
+    private Long getUserIdFromRequest(HttpServletRequest request) {
+        AuthUsersDetails userDetails = (AuthUsersDetails) authTokenFilter.getUserDetails(request);
+        return userDetails.getId();
     }
 
 }
