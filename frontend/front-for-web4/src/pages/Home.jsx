@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {clearState, deleteTry, getTry, homeSelector, sendTry} from "../store/slices/HomeSlice.jsx";
 import {useEffect, useState} from "react";
+import Decart from "../components/Decart.jsx";
 
 function Home() {
     const dispatch = useDispatch();
@@ -16,8 +17,7 @@ function Home() {
     const [formData, setFormData] = useState({
         x: '',
         y: '',
-        r: '',
-        token: localStorage.getItem('token')
+        r: '0'
     });
 
 
@@ -76,6 +76,7 @@ function Home() {
     return (
         <div>
             <Navbar />
+            <Decart r={formData.r}/>
             <div>
                 <form onSubmit={handleFormSubmit}>
                     <label>

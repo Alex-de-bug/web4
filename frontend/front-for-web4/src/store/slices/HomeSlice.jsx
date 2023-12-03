@@ -3,14 +3,14 @@ import axios from "axios";
 
 export const sendTry = createAsyncThunk(
     "home/sendTry",
-    async ({ x, y, r, token }, thunkAPI) => {
+    async ({ x, y, r }, thunkAPI) => {
         try {
             let link = "http://localhost:8080/api/auth/attempt";
             const params = {
                 x: x,
                 y: y,
                 r: r,
-                token: token
+                token: localStorage.getItem('token')
             };
             const response = await axios.post(link, params, {
                 headers: { "Content-Type": "application/json" }
@@ -86,7 +86,8 @@ export const HomeSlice = createSlice({
         isSuccess: false,
         isError: false,
         errorMessage: "",
-        array: ""
+        array: "",
+
     },
     reducers: {
         clearState: (state) => {
@@ -133,6 +134,7 @@ export const HomeSlice = createSlice({
                 console.log(payload);
                 state.isFetching = false;
                 state.errorMessage = "Ошибка при загрузке данных, доступ запрещён"
+                state.array="";
             })
             .addCase(getTry.pending, (state) => {
                 state.isFetching = true;

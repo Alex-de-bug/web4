@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>2603</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>2834</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
-      <StartupTime>1694187767</StartupTime>
+      <StartupTime>1701466406</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -818,7 +826,7 @@ false Zulu
 13449||10|C|G
 13449||-9223372036854775808|U|G
 13449||10|U|G</Grants>
-      <IntrospectionStateNumber>2603</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2834</IntrospectionStateNumber>
       <ObjectId>17309</ObjectId>
       <Relations>sequence|table|17751|17752|1
 </Relations>
@@ -4229,7 +4237,7 @@ false Zulu
     <schema id="265" parent="6" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>2603</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2834</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4247,13 +4255,82 @@ false Zulu
       <StateNumber>2548</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="268" parent="265" name="users">
+    <table id="268" parent="265" name="attempts">
+      <ObjectId>17767</ObjectId>
+      <StateNumber>2605</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="269" parent="265" name="users">
       <ObjectId>17752</ObjectId>
       <StateNumber>2551</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="269" parent="268" name="id">
+    <column id="270" parent="268" name="id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="271" parent="268" name="hit">
+      <DataType>integer|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="272" parent="268" name="r">
+      <DataType>double precision|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="273" parent="268" name="x">
+      <DataType>double precision|0s</DataType>
+      <Position>4</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="274" parent="268" name="y">
+      <DataType>double precision|0s</DataType>
+      <Position>5</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="275" parent="268" name="user_id">
+      <DataType>bigint|0s</DataType>
+      <Position>6</Position>
+      <StateNumber>2604</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="276" parent="268" name="fk9ajal069gdogf73v6rl1ic0bc">
+      <ColNames>user_id</ColNames>
+      <ObjectId>17772</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2605</StateNumber>
+      <RefTableId>17752</RefTableId>
+      <RefTableName>users</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="277" parent="268" name="attempts_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17770</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2604</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="278" parent="268" name="attempts_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>17771</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2604</StateNumber>
+      <UnderlyingIndexId>17770</UnderlyingIndexId>
+    </key>
+    <column id="279" parent="269" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4261,31 +4338,31 @@ false Zulu
       <StateNumber>2548</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="270" parent="268" name="date_of_created">
+    <column id="280" parent="269" name="date_of_created">
       <DataType>timestamp(6)|0s</DataType>
       <Position>2</Position>
       <StateNumber>2548</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="271" parent="268" name="email">
+    <column id="281" parent="269" name="email">
       <DataType>varchar(255)|0s</DataType>
       <Position>3</Position>
       <StateNumber>2548</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="272" parent="268" name="name">
+    <column id="282" parent="269" name="name">
       <DataType>varchar(255)|0s</DataType>
       <Position>4</Position>
       <StateNumber>2548</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="273" parent="268" name="password">
+    <column id="283" parent="269" name="password">
       <DataType>varchar(1000)|0s</DataType>
       <Position>5</Position>
       <StateNumber>2548</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="274" parent="268" name="users_pkey">
+    <index id="284" parent="269" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17758</ObjectId>
@@ -4294,7 +4371,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="275" parent="268" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+    <index id="285" parent="269" name="uk_6dotkott2kjsp8vw4d0m25fb7">
       <ColNames>email</ColNames>
       <ObjectId>17760</ObjectId>
       <StateNumber>2550</StateNumber>
@@ -4304,14 +4381,14 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="276" parent="268" name="users_pkey">
+    <key id="286" parent="269" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17759</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2548</StateNumber>
       <UnderlyingIndexId>17758</UnderlyingIndexId>
     </key>
-    <key id="277" parent="268" name="uk_6dotkott2kjsp8vw4d0m25fb7">
+    <key id="287" parent="269" name="uk_6dotkott2kjsp8vw4d0m25fb7">
       <ObjectId>17761</ObjectId>
       <StateNumber>2550</StateNumber>
       <UnderlyingIndexId>17760</UnderlyingIndexId>

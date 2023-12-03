@@ -5,26 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71f950eb-7371-46f5-b7f9-8448526fe1ed" name="Changes" comment="first front">
-      <change afterPath="$PROJECT_DIR$/src/components/Table.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/slices/HomeSlice.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Decart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/46629334-bc0d-4060-9146-cd206337ec98.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/46629334-bc0d-4060-9146-cd206337ec98.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/46629334-bc0d-4060-9146-cd206337ec98/storage_v2/_src_/database/web.VMsBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/46629334-bc0d-4060-9146-cd206337ec98/storage_v2/_src_/database/web.VMsBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/AttemptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/AttemptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/dto/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/dto/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/dto/HitResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/dto/HitResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/models/Attempt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/models/Attempt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/jwt/AuthTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/sevices/AuthUsersDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/security/sevices/AuthUsersDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/AttemptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/AttemptService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/example/web4/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/slices/HomeSlice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/HomeSlice.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +74,10 @@
       <workItem from="1701070342009" duration="687000" />
       <workItem from="1701089185247" duration="2014000" />
       <workItem from="1701159277929" duration="51536000" />
+      <workItem from="1701421441746" duration="474000" />
+      <workItem from="1701423574964" duration="94000" />
+      <workItem from="1701456804499" duration="7054000" />
+      <workItem from="1701598130715" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="first front">
       <created>1701183907484</created>
