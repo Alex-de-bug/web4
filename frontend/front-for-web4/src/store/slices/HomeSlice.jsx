@@ -4,6 +4,7 @@ import axios from "axios";
 export const sendTry = createAsyncThunk(
     "home/sendTry",
     async ({ x, y, r }, thunkAPI) => {
+        await new Promise(resolve => setTimeout(resolve, 250));
         try {
             let link = "http://localhost:8080/api/auth/attempt";
             const params = {
@@ -16,7 +17,7 @@ export const sendTry = createAsyncThunk(
                 headers: { "Content-Type": "application/json" }
             });
             let data = await response.data;
-            if (response.status === 200) {
+            if (response.status === 200||response.status === 201) {
                 return data;
             } else {
                 return thunkAPI.rejectWithValue(data);
@@ -31,6 +32,7 @@ export const sendTry = createAsyncThunk(
 export const getTry = createAsyncThunk(
     "home/getTry",
     async (thunkAPI) => {
+        await new Promise(resolve => setTimeout(resolve, 250));
         try {
             let link = "http://localhost:8080/api/auth/attempt";
             const config = {
@@ -55,6 +57,7 @@ export const getTry = createAsyncThunk(
 export const deleteTry = createAsyncThunk(
     "home/deleteTry",
     async (thunkAPI) => {
+        await new Promise(resolve => setTimeout(resolve, 250));
         try {
             let link = "http://localhost:8080/api/auth/attempt";
             const config = {
@@ -112,7 +115,6 @@ export const HomeSlice = createSlice({
                 console.log(payload);
                 state.token = payload.token;
                 state.isFetching = false;
-                state.isSuccess = true;
                 return state;
             })
             .addCase(sendTry.rejected, (state, { payload }) => {

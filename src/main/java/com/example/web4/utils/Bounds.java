@@ -1,8 +1,8 @@
 package com.example.web4.utils;
 
 public enum Bounds {
-    X_BOUNDS(-5, 5, true),
-    Y_BOUNDS(-5, 5, true),
+    X_BOUNDS(-8, 8, true),
+    Y_BOUNDS(-8, 8, true),
     R_BOUNDS(0, 5, true);
 
     private final double left;

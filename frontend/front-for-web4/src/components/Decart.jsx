@@ -36,14 +36,9 @@ const CanvasGraph = ({ r }) => {
     const handleCanvasClick = (event) => {
         const canvas = canvasRef.current;
 
-        // Ваша логика для получения координат mouseX и mouseY
+
         const mouseX = (event.clientX - canvas.getBoundingClientRect().left - 250) / 40;
         const mouseY = -(event.clientY - canvas.getBoundingClientRect().top - 250) / 40;
-        // const mouseXe = event.clientX - canvas.getBoundingClientRect().left;
-        // const mouseYe = event.clientY - canvas.getBoundingClientRect().top;
-
-        // // Ваша логика для рисования точки на холсте
-        // drawPointe(mouseXe, mouseYe, mouseX.toFixed(2), mouseY.toFixed(2));
 
         formData.x = mouseX;
         formData.y = mouseY;
@@ -262,9 +257,8 @@ const CanvasGraph = ({ r }) => {
     return (
         <canvas
             ref={canvasRef}
-            width={300} // ширина вашего холста
-            height={300} // высота вашего холста
-            style={{ border: '1px solid black' }}
+            width={300}
+            height={300}
             onClick={handleCanvasClick}
         ></canvas>
     );
