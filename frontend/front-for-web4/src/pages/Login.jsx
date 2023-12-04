@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginUser, loginSelector, clearState } from '../store/slices/LoginSlice';
-import { Typography, Container, Box, TextField, Button, Snackbar, Alert } from '@mui/material';
+import { Typography, Container, Box, TextField, Button, Snackbar, Alert, useMediaQuery } from '@mui/material';
 import Navbar from '../components/Navbar';
-import {useForm} from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 function Login() {
   const dispatch = useDispatch();
@@ -40,11 +40,15 @@ function Login() {
     }
   }, [isError, isSuccess, dispatch, navigate]);
 
+  const isDesktop = useMediaQuery('(min-width: 1260px)');
+  const isTablet = useMediaQuery('(min-width: 781px) and (max-width: 1259px)');
+  const isMobile = useMediaQuery('(max-width: 780px)');
+
   return (
       <div>
         <Navbar />
         <Container maxWidth="sm">
-          <Box sx={{ mt: 8 }}>
+          <Box sx={{ mt: isDesktop ? 8 : isTablet ? 6 : isMobile ? 4 : 2 }}>
             <Typography variant="h4" gutterBottom>
               Sign in to your account
             </Typography>
@@ -88,3 +92,4 @@ function Login() {
 }
 
 export default Login;
+
