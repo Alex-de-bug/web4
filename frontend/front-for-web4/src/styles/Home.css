@@ -1,13 +1,5 @@
-.adaptive-element {
-    /* Стили элемента по умолчанию */
-    width: 300px;
-    height: 300px;
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-/* Пример медиа-запроса для адаптивного изменения размеров элемента */
-/*@media screen and (max-width: 768px) {*/
-/*    .adaptive-element {*/
-/*        width: 300px;*/
-/*        height: 300px;*/
-/*    }*/
-/*}*/

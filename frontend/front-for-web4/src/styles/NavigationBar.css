@@ -2,3 +2,13 @@
     text-decoration: none;
     color: inherit;
 }
+
+.left-text{
+    display: none;
+}
+
+@media screen and (min-width: 450px){
+    .left-text{
+        display: flex;
+    }
+}

@@ -95,12 +95,20 @@ function Home() {
         }
     }, [isError, isSuccess]);
 
+
     return (
         <div>
             <Navbar />
             <Container maxWidth="sm" sx={{ mt: 4 }}>
                 <Paper sx={{ p: 4 }}>
-                    <Decart r={formData.r} />
+
+                    <div className="parent">
+                        <div className="centered">
+                            <Decart r={formData.r}/>
+                        </div>
+                    </div>
+
+                    {/*<Decart r={formData.r} />*/}
                     <form onSubmit={handleFormSubmit}>
                         <Grid container spacing={2}> {/* Используем Grid для управления расположением элементов */}
                             <Grid item xs={12}>
@@ -173,69 +181,6 @@ function Home() {
                 </Paper>
                 <Table />
             </Container>
-            {/*<Container maxWidth="sm" sx={{ mt: 4 }}>*/}
-            {/*    <Paper sx={{ p: 4 }}>*/}
-            {/*        <Decart r={formData.r} />*/}
-            {/*        <form onSubmit={handleFormSubmit}>*/}
-            {/*            <FormControl component="fieldset" sx={{ mb: 3 }}>*/}
-            {/*                <FormLabel component="legend">Координата по оси X:</FormLabel>*/}
-            {/*                <FormGroup row>*/}
-            {/*                    {['-3', '-2', '-1', '0', '1', '2', '3', '4', '5'].map((value) => (*/}
-            {/*                        <FormControlLabel*/}
-            {/*                            key={`x_${value}`}*/}
-            {/*                            control={*/}
-            {/*                                <Checkbox*/}
-            {/*                                    name="x"*/}
-            {/*                                    value={value}*/}
-            {/*                                    onChange={handleChange}*/}
-            {/*                                    checked={selectedItemX === value}*/}
-            {/*                                />*/}
-            {/*                            }*/}
-            {/*                            label={value}*/}
-            {/*                        />*/}
-            {/*                    ))}*/}
-            {/*                </FormGroup>*/}
-            {/*            </FormControl>*/}
-            {/*            <FormControl sx={{ mb: 3 }}>*/}
-            {/*                <InputLabel>Координата по оси Y:</InputLabel>*/}
-            {/*                <Input*/}
-            {/*                    type="number"*/}
-            {/*                    name="y"*/}
-            {/*                    value={formData.y}*/}
-            {/*                    onChange={handleChange}*/}
-            {/*                    inputProps={{ min: -5, max: 5 }}*/}
-            {/*                    required*/}
-            {/*                />*/}
-            {/*            </FormControl>*/}
-            {/*            <FormControl component="fieldset" sx={{ mb: 3 }}>*/}
-            {/*                <FormLabel component="legend">Размер графика R:</FormLabel>*/}
-            {/*                <FormGroup row>*/}
-            {/*                    {['0', '1', '2', '3', '4', '5'].map((value) => (*/}
-            {/*                        <FormControlLabel*/}
-            {/*                            key={`r_${value}`}*/}
-            {/*                            control={*/}
-            {/*                                <Checkbox*/}
-            {/*                                    name="r"*/}
-            {/*                                    value={value}*/}
-            {/*                                    onChange={handleChange}*/}
-            {/*                                    checked={selectedItemR === value}*/}
-            {/*                                />*/}
-            {/*                            }*/}
-            {/*                            label={value}*/}
-            {/*                        />*/}
-            {/*                    ))}*/}
-            {/*                </FormGroup>*/}
-            {/*            </FormControl>*/}
-            {/*            <Button variant="contained" type="submit" disabled={isFetching}>*/}
-            {/*                {isFetching ? 'Sending...' : 'Send'}*/}
-            {/*            </Button>*/}
-            {/*            <Button variant="contained" onClick={onDelete} disabled={isFetching}>*/}
-            {/*                {isFetching ? 'Deleting...' : 'Delete'}*/}
-            {/*            </Button>*/}
-            {/*        </form>*/}
-            {/*    </Paper>*/}
-            {/*    <Table />*/}
-            {/*</Container>*/}
             <Snackbar open={openError} autoHideDuration={3000} onClose={() => setOpenError(false)}>
                 <Alert severity="error" onClose={() => setOpenError(false)}>
                     {errorMessage}
@@ -243,6 +188,7 @@ function Home() {
             </Snackbar>
         </div>
     );
+
 }
 
 export default Home;

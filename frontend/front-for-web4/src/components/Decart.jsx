@@ -25,24 +25,41 @@ const CanvasGraph = ({ r }) => {
 
         for (let i = 0; i < array.length; i++) {
             const currentData = array[i];
-            const x = parseFloat(currentData.x); // Преобразование строки в число
-            const y = parseFloat(currentData.y); // Преобразование строки в число
-
-            if(window.innerWidth<550){
-                drawPointe(
-                    x * 14 + 110,
-                    (-y * 14 + 110),
-                    x,
-                    y, ctx, canvas
-                );
-            }else{
-                drawPointe(
-                    x * 40 + 250,
-                    (-y * 40 + 250),
-                    x,
-                    y, ctx, canvas
-                );
+            const x = parseFloat(currentData.x);
+            const y = parseFloat(currentData.y);
+            const r1 = parseFloat(currentData.r);
+            if(r==r1){
+                if(window.innerWidth<550){
+                    drawPointe(
+                        x * 14 + 110,
+                        (-y * 14 + 110),
+                        x,
+                        y, ctx, canvas
+                    );
+                }else{
+                    drawPointe(
+                        x * 40 + 250,
+                        (-y * 40 + 250),
+                        x,
+                        y, ctx, canvas
+                    );
+                }
             }
+            // if(window.innerWidth<550){
+            //     drawPointe(
+            //         x * 14 + 110,
+            //         (-y * 14 + 110),
+            //         x,
+            //         y, ctx, canvas
+            //     );
+            // }else{
+            //     drawPointe(
+            //         x * 40 + 250,
+            //         (-y * 40 + 250),
+            //         x,
+            //         y, ctx, canvas
+            //     );
+            // }
 
         }
     }, [r, array]);
@@ -57,21 +74,40 @@ const CanvasGraph = ({ r }) => {
             const x = parseFloat(currentData.x); // Преобразование строки в число
             const y = parseFloat(currentData.y); // Преобразование строки в число
 
-            if(window.innerWidth<550){
-                drawPointe(
-                    x * 14 + 110,
-                    (-y * 14 + 110),
-                    x,
-                    y, ctx, canvas
-                );
-            }else{
-                drawPointe(
-                    x * 40 + 250,
-                    (-y * 40 + 250),
-                    x,
-                    y, ctx, canvas
-                );
+            const r1 = parseFloat(currentData.r);
+            if(r==r1){
+                if(window.innerWidth<550){
+                    drawPointe(
+                        x * 14 + 110,
+                        (-y * 14 + 110),
+                        x,
+                        y, ctx, canvas
+                    );
+                }else{
+                    drawPointe(
+                        x * 40 + 250,
+                        (-y * 40 + 250),
+                        x,
+                        y, ctx, canvas
+                    );
+                }
             }
+
+            // if(window.innerWidth<550){
+            //     drawPointe(
+            //         x * 14 + 110,
+            //         (-y * 14 + 110),
+            //         x,
+            //         y, ctx, canvas
+            //     );
+            // }else{
+            //     drawPointe(
+            //         x * 40 + 250,
+            //         (-y * 40 + 250),
+            //         x,
+            //         y, ctx, canvas
+            //     );
+            // }
 
         }
     };

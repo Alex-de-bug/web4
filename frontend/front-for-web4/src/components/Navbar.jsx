@@ -51,7 +51,7 @@ const DesktopNav = ({ hasToken }) => {
                                 sx={{ mr: 2 }}
                             >
                             </IconButton>
-                            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            <Typography className="left-text" variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                 Tries
                             </Typography>
                             <ButtonGroup
@@ -106,7 +106,7 @@ const DesktopNav = ({ hasToken }) => {
                                 sx={{ mr: 2 }}
                             >
                             </IconButton>
-                            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            <Typography className="left-text" variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                 WEB
                             </Typography>
                             <ButtonGroup
@@ -140,7 +140,6 @@ const DesktopNav = ({ hasToken }) => {
                                     Alex D. ISU: 367193 VAR: 2298
                                 </Button>
                             </ButtonGroup>
-
                         </Toolbar>
                     </AppBar>
                 </Box>
