@@ -16,9 +16,9 @@ import {
     FormLabel,
     Input,
     InputLabel,
-    Paper,
-    Typography
+    Paper
 } from "@mui/material";
+import "../styles/Home.css";
 
 function Home() {
     const dispatch = useDispatch();

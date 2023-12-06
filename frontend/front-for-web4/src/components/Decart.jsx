@@ -1,6 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getTry, homeSelector, sendTry} from "../store/slices/HomeSlice.jsx";
+import "../styles/Home.css"
 
 const CanvasGraph = ({ r }) => {
     const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const CanvasGraph = ({ r }) => {
         token: localStorage.getItem('token')
     });
 
+
+
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
@@ -24,21 +27,69 @@ const CanvasGraph = ({ r }) => {
             const currentData = array[i];
             const x = parseFloat(currentData.x); // Преобразование строки в число
             const y = parseFloat(currentData.y); // Преобразование строки в число
-            drawPointe(
-                x * 40 + 250,
-                (-y * 40 + 250),
-                x,
-                y, ctx, canvas
-            );
+
+            if(window.innerWidth<550){
+                drawPointe(
+                    x * 14 + 110,
+                    (-y * 14 + 110),
+                    x,
+                    y, ctx, canvas
+                );
+            }else{
+                drawPointe(
+                    x * 40 + 250,
+                    (-y * 40 + 250),
+                    x,
+                    y, ctx, canvas
+                );
+            }
+
         }
     }, [r, array]);
+
+    // Перерисовываем canvas при изменении размеров окна
+    const handleResize = () => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        drawG(r,ctx, canvas);
+        for (let i = 0; i < array.length; i++) {
+            const currentData = array[i];
+            const x = parseFloat(currentData.x); // Преобразование строки в число
+            const y = parseFloat(currentData.y); // Преобразование строки в число
+
+            if(window.innerWidth<550){
+                drawPointe(
+                    x * 14 + 110,
+                    (-y * 14 + 110),
+                    x,
+                    y, ctx, canvas
+                );
+            }else{
+                drawPointe(
+                    x * 40 + 250,
+                    (-y * 40 + 250),
+                    x,
+                    y, ctx, canvas
+                );
+            }
+
+        }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+
 
     const handleCanvasClick = (event) => {
         const canvas = canvasRef.current;
 
+        let mouseX = parseFloat(((event.clientX - canvas.getBoundingClientRect().left - 250) / 40).toFixed(2));
+        let mouseY = parseFloat(-((event.clientY - canvas.getBoundingClientRect().top - 250) / 40).toFixed(2));
 
-        const mouseX = (event.clientX - canvas.getBoundingClientRect().left - 250) / 40;
-        const mouseY = -(event.clientY - canvas.getBoundingClientRect().top - 250) / 40;
+        if(window.innerWidth<550){
+            mouseX = parseFloat(((event.clientX - canvas.getBoundingClientRect().left - 110) / 14).toFixed(2));
+            mouseY = parseFloat(-((event.clientY - canvas.getBoundingClientRect().top - 110) / 14).toFixed(2));
+        }
 
         formData.x = mouseX;
         formData.y = mouseY;
@@ -56,9 +107,16 @@ const CanvasGraph = ({ r }) => {
         canvas.width = 500;
         canvas.height = 500;
         let radiusSpec = 200*r/5;
-        const radius = 200;
+        let radius = 200;
 
-        const centerX = canvas.width / 2;
+        if(window.innerWidth<550){
+            canvas.width = 220;
+            canvas.height = 220;
+            radiusSpec = 80*r/5;
+            radius = 70;
+        }
+
+        const centerX = (canvas.width) / 2;
         const centerY = canvas.height / 2;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -255,12 +313,12 @@ const CanvasGraph = ({ r }) => {
     }
 
     return (
-        <canvas
-            ref={canvasRef}
-            width={300}
-            height={300}
-            onClick={handleCanvasClick}
-        ></canvas>
+            <canvas
+                ref={canvasRef}
+                width={150}
+                height={150}
+                onClick={handleCanvasClick}
+            ></canvas>
     );
 };
 
